@@ -14,6 +14,7 @@ channels = {extras = ["daphne"], version = "*"}
 djoser = "*"
 python-dotenv = "*"
 dj-database-url = "*"
+pymysql = "*"
 
 [dev-packages]
 
