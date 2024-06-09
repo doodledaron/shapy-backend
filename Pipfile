@@ -12,6 +12,8 @@ environs = "*"
 django-cors-headers = "*"
 channels = {extras = ["daphne"], version = "*"}
 djoser = "*"
+python-dotenv = "*"
+dj-database-url = "*"
 
 [dev-packages]
 
