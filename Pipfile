@@ -14,7 +14,6 @@ djoser = "*"
 python-dotenv = "*"
 dj-database-url = "*"
 django-environ = "*"
-psycopg2-binary = "*"
 
 [dev-packages]
 
