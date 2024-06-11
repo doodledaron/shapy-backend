@@ -2,11 +2,12 @@ from channels.generic.websocket import AsyncWebsocketConsumer #handling websocke
 import json
 from channels.layers import get_channel_layer
 
+#get channel layer
 channel_layer = get_channel_layer()
 channel_name = "shape_user"
 
 
-
+#consumer to set up websocket
 class ShapeConsumer(AsyncWebsocketConsumer):
     async def connect(self):
         self.group_name = 'public_room'

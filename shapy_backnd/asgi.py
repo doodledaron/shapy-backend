@@ -34,3 +34,5 @@ application = ProtocolTypeRouter({
         )
     )
 })
+
+app = shapy_application
