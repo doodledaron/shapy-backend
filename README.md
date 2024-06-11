@@ -5,7 +5,6 @@ This is a project built with Django and REST Framework
 ## Table of Contents
 
 - [Project Setup](#project-setup)
-- [Folder Structure](#folder-structure)
 - [Apps](#apps)
 - [Features](#features)
 
@@ -47,34 +46,6 @@ python manage.py migrate
 python manage.py runserver
 ```
 
-
-## Project Setup
-```
-src
-├── App.vue
-├── assets
-│   └── style.css
-├── auth
-│   ├── LogIn.vue
-│   └── SignUp.vue
-├── components
-│   ├── AddShapeForm.vue
-│   ├── BaseInput.vue
-│   ├── DeleteDialogContent.vue
-│   ├── Dialog.vue
-│   ├── EditShapeForm.vue
-│   ├── ListItem.vue
-│   ├── NavigationBar.vue
-│   └── SearchAndAddButtonRow.vue
-├── main.js
-├── services.js
-├── store
-│   └── authStore.js
-├── utils.js
-└── views
-    ├── SignUpOrLogin.vue
-    └── View.vue
-```
 
 ## Apps
 ### main
