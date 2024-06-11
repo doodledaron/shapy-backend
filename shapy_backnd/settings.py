@@ -80,7 +80,7 @@ TEMPLATES = [
     },
 ]
 
-# WSGI_APPLICATION = 'shapy_backnd.wsgi.application'
+
 ASGI_APPLICATION = 'shapy_backnd.asgi.application'
 
 CHANNEL_LAYERS = {
