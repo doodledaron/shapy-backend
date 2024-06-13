@@ -35,7 +35,7 @@ def create_shape(request):
         return Response("color doesn't exists",status=status.HTTP_400_BAD_REQUEST)
     
     #sample filename: circle_blue.png
-    filename = f'{data['shape']}_{data['color']}.png'
+    filename = f"{data['shape']}_{data['color']}.png"
     
     #check if the imagefile exists, onlu save shape if file exists
     if not default_storage.exists(f"shapes/{filename}"):
