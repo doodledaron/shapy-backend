@@ -20,7 +20,7 @@ except environ.ImproperlyConfigured:
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['.vercel.app', '*', 'shapy-backend.onrender.com']
+ALLOWED_HOSTS = ['*', 'shapy-backend.onrender.com']
 CSRF_TRUSTED_ORIGIN = ["http://*.on-acorn.io, https://*.on-acorn.io"]
 
 REST_FRAMEWORK = {
