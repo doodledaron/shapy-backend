@@ -9,8 +9,6 @@ environ.Env.read_env()
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 try:
     SECRET_KEY = env("SECRET_KEY")
 except environ.ImproperlyConfigured:
@@ -21,7 +19,6 @@ except environ.ImproperlyConfigured:
 DEBUG = True
 
 ALLOWED_HOSTS = ['*', 'shapy-backend.onrender.com']
-CSRF_TRUSTED_ORIGIN = ["http://*.on-acorn.io, https://*.on-acorn.io"]
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
@@ -42,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'main',
+    "csp",
     'main_user',
     'rest_framework',
     'rest_framework.authtoken',
@@ -55,6 +53,7 @@ MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     "whitenoise.middleware.WhiteNoiseMiddleware",
+    "csp.middleware.CSPMiddleware",
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -63,11 +62,7 @@ MIDDLEWARE = [
     
 ]
 
-STORAGES = {
-    "staticfiles": {
-        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
-    },
-}
+
 
 CORS_ALLOW_ALL_ORIGINS = True
 
@@ -93,14 +88,14 @@ TEMPLATES = [
 # ASGI_APPLICATION = 'shapy_backnd.asgi.application'
 WSGI_APPLICATION = 'shapy_backnd.wsgi.application'
 
+#currently not used (asgi)
 # CHANNEL_LAYERS = {
 #     'default': {
 #         'BACKEND': "channels.layers.InMemoryChannelLayer"
 #     }
 # }
 
-# Database
-# https://docs.djangoproject.com/en/5.0/ref/settings/#databases
+
 
 DATABASES = {
         'default': {
@@ -115,7 +110,6 @@ DATABASES = {
 }
 #use a external database (overwrite)
 DATABASES["default"] = dj_database_url.parse(env("DB_URL"))
-
 
 
 AUTH_PASSWORD_VALIDATORS = [
@@ -133,10 +127,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
-# Internationalization
-# https://docs.djangoproject.com/en/5.0/topics/i18n/
-
 LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
@@ -146,18 +136,16 @@ USE_I18N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/5.0/howto/static-files/
-
 STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
-# Default primary key field type
-# https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
+
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 #to store all media files 
 MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+
 # Take environment variables from .env file
 environ.Env.read_env(BASE_DIR / '.env')  # <-- Updated!

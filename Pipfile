@@ -16,6 +16,7 @@ dj-database-url = "*"
 django-environ = "*"
 gunicorn = "*"
 whitenoise = "*"
+django-csp = "*"
 
 [dev-packages]
 
