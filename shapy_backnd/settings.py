@@ -20,7 +20,7 @@ except environ.ImproperlyConfigured:
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['.vercel.app', '*', ]
+ALLOWED_HOSTS = ['.vercel.app', '*', 'shapy-backend.onrender.com']
 CSRF_TRUSTED_ORIGIN = ["http://*.on-acorn.io, https://*.on-acorn.io"]
 
 REST_FRAMEWORK = {
@@ -40,7 +40,6 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'daphne',
     'django.contrib.staticfiles',
     'main',
     'main_user',
@@ -83,13 +82,14 @@ TEMPLATES = [
 ]
 
 
-ASGI_APPLICATION = 'shapy_backnd.asgi.application'
+# ASGI_APPLICATION = 'shapy_backnd.asgi.application'
+WSGI_APPLICATION = 'shapy_backnd.wsgi.application'
 
-CHANNEL_LAYERS = {
-    'default': {
-        'BACKEND': "channels.layers.InMemoryChannelLayer"
-    }
-}
+# CHANNEL_LAYERS = {
+#     'default': {
+#         'BACKEND': "channels.layers.InMemoryChannelLayer"
+#     }
+# }
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
