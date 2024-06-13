@@ -38,8 +38,8 @@ def create_shape(request):
     filename = f"{data['shape']}_{data['color']}.png"
     
     #check if the imagefile exists, onlu save shape if file exists
-    if not default_storage.exists(f"shapes/{filename}"):
-        return Response(f"Image {filename} not found", status=status.HTTP_400_BAD_REQUEST)
+    # if not default_storage.exists(f"shapes/{filename}"):
+    #     return Response(f"Image {filename} not found", status=status.HTTP_400_BAD_REQUEST)
     
     shape = Shape.objects.create(
         name = data['name'],
