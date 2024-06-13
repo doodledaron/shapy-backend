@@ -1,6 +1,7 @@
 from pathlib import Path
 import os
 import environ
+import dj_database_url
 env = environ.Env()
 environ.Env.read_env()
 
@@ -19,7 +20,8 @@ except environ.ImproperlyConfigured:
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['.vercel.app', '*', '.now.sh']
+ALLOWED_HOSTS = ['.vercel.app', '*', ]
+CSRF_TRUSTED_ORIGIN = ["http://*.on-acorn.io, https://*.on-acorn.io"]
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
@@ -103,6 +105,8 @@ DATABASES = {
     }
 
 }
+#use a external database (overwrite)
+DATABASES["default"] = dj_database_url.parse(env("DB_URL"))
 
 
 
